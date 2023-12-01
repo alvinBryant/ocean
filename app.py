@@ -26,6 +26,12 @@ def add(n1, n2):
 def greet_user(user_id):
     users = ['Bob', 'Jane', 'Adam']
     try:
+       
         return '<h2>Hi {}</h2>'.format(users[user_id])
     except IndexError:
         abort(404)
+
+
+@app.route('/myName/<first>/<middle>/<last>')
+def myName(first,middle,last):
+    return '<h1>{}</h1>'.format(escape(first.capitalize()) +" "+ escape(middle.capitalize()) +" "+ escape(last.capitalize()))
